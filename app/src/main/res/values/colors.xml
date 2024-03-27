@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="statusBarColor">#003A77</color>
+
+    <color name="black">#161616</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="ltWhite">#F8F8F8</color>
+
+    <color name="grey">#D9D9D9</color>
+    <color name="grey1">#909090</color>
+    <color name="grey2">#DAD9D9</color>
+    <color name="grey3">#727272</color>
+
+    <color name="blue">#008EDE</color>
+    <color name="blue1">#045EBC</color>
+    <color name="orange">#FF7147</color>
+    <color name="red">#FF1100</color>
+
+    <color name="transparent">#00000000</color>
+
+</resources>

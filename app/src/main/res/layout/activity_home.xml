@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue1"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_15dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/BoldTextMontserrat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnLogout"
+                style="@style/TopBarIcon"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_logout"
+                app:tint="@color/white" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_corner_top"
+            android:backgroundTint="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="@dimen/_15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BoldTextMontserrat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:text="@string/todo_task"
+                                android:textSize="@dimen/_16sp" />
+
+                            <ViewAnimator
+                                android:id="@+id/vaTodoTask"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_180dp"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp">
+
+                                <!--0-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ProgressBar
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:indeterminateTint="@color/blue"
+                                            android:visibility="visible" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--1-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/btnAddNewTask"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <androidx.appcompat.widget.AppCompatImageView
+                                            android:layout_width="@dimen/_45dp"
+                                            android:layout_height="@dimen/_45dp"
+                                            android:src="@drawable/ic_add" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/BoldTextMontserrat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_15dp"
+                                            android:text="@string/add_a_new_task"
+                                            android:textColor="@color/blue"
+                                            android:textSize="@dimen/_14sp" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--2-->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvTodoTask"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    tools:itemCount="1"
+                                    tools:listitem="@layout/rcv_item_todo_task" />
+
+                                <!--3-->
+                                <include layout="@layout/layout_no_data" />
+
+                            </ViewAnimator>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15dp"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/BoldTextMontserrat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:text="@string/in_progress_tasks"
+                                android:textSize="@dimen/_16sp" />
+
+                            <ViewAnimator
+                                android:id="@+id/vaProgressTask"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_180dp"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp">
+
+                                <!--0-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ProgressBar
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:indeterminateTint="@color/blue"
+                                            android:visibility="visible" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--1-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/RegularTextMontserrat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_10dp"
+                                            android:text="@string/no_in_progress_tasks" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--2-->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvProgressTask"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    tools:itemCount="1"
+                                    tools:listitem="@layout/rcv_item_todo_task" />
+
+                                <!--3-->
+                                <include layout="@layout/layout_no_data" />
+
+                            </ViewAnimator>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_15dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/BoldTextMontserrat"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/completed_tasks"
+                                    android:textSize="@dimen/_16sp" />
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/btnViewAll"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15dp"
+                                    app:cardElevation="@dimen/_0dp">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="@dimen/_10dp">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:id="@+id/tvStart"
+                                            style="@style/BoldTextMontserrat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/show_all"
+                                            android:textColor="@color/blue1"
+                                            android:textSize="@dimen/_14sp" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                            </LinearLayout>
+
+                            <ViewAnimator
+                                android:id="@+id/vaCompleteTask"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_180dp"
+                                android:layout_marginHorizontal="@dimen/_15dp"
+                                android:layout_marginTop="@dimen/_10dp">
+
+                                <!--0-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ProgressBar
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:indeterminateTint="@color/blue"
+                                            android:visibility="visible" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--1-->
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:cardBackgroundColor="@color/ltWhite"
+                                    app:cardCornerRadius="@dimen/_10dp"
+                                    app:cardElevation="@dimen/_0dp"
+                                    app:strokeColor="@color/grey2"
+                                    app:strokeWidth="@dimen/_1.5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/RegularTextMontserrat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_10dp"
+                                            android:text="@string/no_completed_tasks" />
+
+                                    </LinearLayout>
+
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <!--2-->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rvCompleteTask"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    tools:itemCount="1"
+                                    tools:listitem="@layout/rcv_item_todo_task" />
+
+                                <!--3-->
+                                <include layout="@layout/layout_no_data" />
+
+                            </ViewAnimator>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btnAddTask"
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="@dimen/_15dp"
+                    android:layout_marginBottom="@dimen/_15dp"
+                    android:backgroundTint="@color/blue"
+                    app:icon="@drawable/ic_add_btn"
+                    app:iconTint="@color/white" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
