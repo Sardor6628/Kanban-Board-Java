@@ -31,6 +31,9 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cursorColor="@color/blue1"
+                app:boxStrokeColor="@color/blue1"
+                app:hintTextColor="@color/blue1"
                 android:hint="@string/title">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -46,6 +49,9 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cursorColor="@color/blue1"
+                app:boxStrokeColor="@color/blue1"
+                app:hintTextColor="@color/blue1"
                 android:layout_marginTop="@dimen/_10dp"
                 android:hint="@string/description">
 

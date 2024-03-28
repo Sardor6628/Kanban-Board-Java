@@ -107,8 +107,8 @@
                     android:id="@+id/rvCompleteTask"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    tools:itemCount="1"
-                    tools:listitem="@layout/rcv_item_todo_task" />
+                    android:paddingBottom="@dimen/_100dp"
+                    android:clipToPadding="false" />
 
                 <!--3-->
                 <include layout="@layout/layout_no_data" />

@@ -23,6 +23,7 @@ public class SplashActivity extends BaseActivity {
         ActivitySplashBinding binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        prefsUtils.setUserId("SIVmFx5GaLcErR9I47mv7gv8yPs2");
         startTimer();
     }
 

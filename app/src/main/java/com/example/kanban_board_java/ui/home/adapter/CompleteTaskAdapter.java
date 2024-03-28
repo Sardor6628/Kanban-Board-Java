@@ -47,7 +47,13 @@ public class CompleteTaskAdapter extends RecyclerView.Adapter<CompleteTaskAdapte
 
         holder.binding.tvTitle.setText(data.getTitle());
         holder.binding.tvDescription.setText(data.getDescription());
-        holder.binding.tvCompleteTime.setText(Utils.formatString(data.getCompletedTime()/1000, "yyyy/MM/dd, HH:mm:ss"));
+
+        if (data.getCompletedTime() != 1000L){
+            holder.binding.tvCompleteTime.setVisibility(View.VISIBLE);
+            holder.binding.tvCompleteTime.setText("Completed on " + Utils.formatString(data.getCompletedTime()/1000, "yyyy/MM/dd, HH:mm:ss"));
+        }else{
+            holder.binding.tvCompleteTime.setVisibility(View.GONE);
+        }
 
         if (data.getSpentTime() == 0L) {
             holder.binding.llSpentTime.setVisibility(View.GONE);

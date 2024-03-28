@@ -2,6 +2,7 @@ package com.example.kanban_board_java.ui.completetask.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,8 +43,19 @@ public class CompleteTaskShowAdapter extends RecyclerView.Adapter<CompleteTaskSh
         TaskResponse data = list.get(position);
         holder.binding.tvTitle.setText(data.getTitle());
         holder.binding.tvDescription.setText(data.getDescription());
+        if (data.getSpentTime() == 0L){
+            holder.binding.llSpentTime.setVisibility(View.GONE);
+        }
+
         holder.binding.tvSpent.setText(Utils.formatSecondToString(data.getSpentTime()));
-        holder.binding.tvCompleteTime.setText(Utils.formatSecondToString(data.getCompletedTime()/1000));
+
+        if (data.getCompletedTime() != 1000L){
+            holder.binding.tvCompleteTime.setVisibility(View.VISIBLE);
+            holder.binding.tvCompleteTime.setText("Completed on " + Utils.formatString(data.getCompletedTime()/1000, "yyyy/MM/dd, HH:mm:ss"));
+        }else{
+            holder.binding.tvCompleteTime.setVisibility(View.GONE);
+        }
+
         holder.itemView.setOnClickListener(view -> {
             if (onItemClickListener != null) {
                 onItemClickListener.onItemClick(data, position);

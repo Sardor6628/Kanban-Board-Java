@@ -57,6 +57,9 @@ public class TaskResponse {
     }
 
     public Long getCreatedTime() {
+        if (createdTime == null) {
+            return 1000L;
+        }
         return createdTime;
     }
 
@@ -65,6 +68,9 @@ public class TaskResponse {
     }
 
     public Long getCompletedTime() {
+        if (completedTime == null) {
+            return 1000L;
+        }
         return completedTime;
     }
 
@@ -73,6 +79,9 @@ public class TaskResponse {
     }
 
     public Long getStartedTime() {
+        if (startedTime == null) {
+            return 1000L;
+        }
         return startedTime;
     }
 
